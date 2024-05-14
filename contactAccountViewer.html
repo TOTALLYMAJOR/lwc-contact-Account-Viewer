@@ -1,0 +1,24 @@
+<template>
+    <lightning-card title="Contact and Account Details" icon-name="standard:contact">
+        <!-- Render a lightning-card component with title and icon -->
+        <div class="slds-m-around_medium">
+            <!-- Render content inside the card -->
+            <template if:true={contactData}>
+                <!-- Render contact details if contactData is truthy -->
+                <p><b>Contact Name:</b> {contactData.Name}</p>
+                <!-- Render contact email -->
+                <p><b>Contact Email:</b> {contactData.Email}</p>
+                <!-- Render contact phone -->
+                <p><b>Contact Phone:</b> {contactData.Phone}</p>
+                <!-- Render account name with hyperlink to navigate to account -->
+                <p><b>Account Name:</b> <a onclick={navigateToAccount}>{contactData.Account.Name}</a></p>
+                <!-- Render account industry -->
+                <p><b>Account Industry:</b> {contactData.Account.Industry}</p>
+            </template>
+            <template if:true={error}>
+                <!-- Render error message if error is truthy -->
+                <p class="slds-text-color_error">{error}</p>
+            </template>
+        </div>
+    </lightning-card>
+</template>
